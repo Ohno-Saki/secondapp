@@ -1,0 +1,22 @@
+<div class="container devise">
+<div class="devise-frame w-50 mx-auto">
+<h2>ログイン</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <span class="badge badge-danger mr-3">必須</span>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス",class: "mb-4" %>
+  </div>
+
+  <div class="field">
+    <span class="badge badge-danger mr-3">必須</span>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード",class: "mb-4" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "ログイン",class: "btn btn-primary  btn-block" %>
+  </div>
+<% end %>
+<%= link_to"新しいアカウントを作成", new_user_session_path,class: "btn btn-outline-primary text-blue  btn-block" %>
+</div>
+</div>

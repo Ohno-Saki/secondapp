@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container-field user">
+  <div class="row">
+    <div class="user-view">
+      <div class="user-view-box">
+        
+        <div class="update-content">
+          <div class="row">
+            <p>予約した部屋</p>
+            <div>
+              <%= @room.room_name %>
+            </div>
+          </div>
+        </div>
+        <div class="update-content">
+          <div class="row">
+            <p>開始日</p>
+            <div>
+              <%= @reservation.start_day %>
+            </div>
+          </div>
+        </div>
+        <div class="update-content">
+          <div class="row">
+            <p>終了日</p>
+            <div>
+              <%= @reservation.finish_day %>
+            </div>
+          </div>
+        </div>
+        <div class="update-content">
+          <div class="row">
+            <p>価格</p>
+            <div>
+              <%= @reservation.total_amount %>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

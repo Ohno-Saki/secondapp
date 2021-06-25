@@ -1,0 +1,40 @@
+<div class="container-fluid user bg-light w-100 h-100">
+<div class="row w-100 h-100">
+  <div class="user-nav col-2 bg-white h-100">
+    <ul>
+      <li><%= link_to"アカウント",users_account_path %></li>
+      <li><%= link_to"プロフィール",profile_edit_path %></li>
+    </ul>
+  </div>
+  <div class="user-view col-10 bg-light h-100">
+    <div class="user-view-box">
+      <div class="update-content">
+        <div class="row">
+          <h5>アカウント</h5>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <label class="col-3">メールアドレス</label>
+          <div class="col-9">
+          <%= @user.email %>
+          </div>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <label class="col-3">パスワード</label>
+          <p class="col-9">********</p>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+         
+          <%= link_to"編集",edit_user_registration_path, class: "btn btn-primary text-white col-2 ml-3" %>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+</div>
