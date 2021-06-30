@@ -21,10 +21,7 @@ class ReservationsController < ApplicationController
   def confirm
     @room = Room.find(params[:id])
     @reservation = Reservation.new(reservation_params)
-    
   end
-  
-  
   
   # GET /reservations/1/edit
   def edit
@@ -74,7 +71,7 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.  ,:user_id, :room_id :total_amount
+    # Only allow a list of trusted parameters through.  ,:user_id, :room_id :total_amount :room_image
     def reservation_params
       params.require(:reservation).permit(:start_day, :finish_day, :number_of_people, :total_amount, :room_id ).merge(user_id: current_user.id)
     end

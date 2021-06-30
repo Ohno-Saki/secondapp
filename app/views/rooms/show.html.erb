@@ -2,19 +2,17 @@
   <div class="row">
     <div class="col-8">
       <%= image_tag @room.room_image.to_s,class: "room-show-image" %>
-      <div class="room-show-detail">
-        <div class="room-show-detai-icon">
-          
-          <%= image_tag current_user.user_image.to_s %>  
-          
+      <div class="room-show-detail row p-4 align-items-center">
+        <div class="room-show-detai-icon col-2 p-2">
+          <%= image_tag current_user.user_image.to_s,class: "icon-image" %>  
         </div>
-        <div class="room-show-profile">
-          <%= @room.room_name %>
-          <%= @room.room_adress %>
+        <div class="room-show-profile col-10">
+          <h4 class="p-2 mb-4"><%= @room.room_name %></h4>
+          <p class="pl-2"><%= @room.room_adress %></p>
         </div>
-        <div class="room-show-detail-content py-3 px-1">
-          <%= @room.room_introduction %>
-        </div>
+      </div>
+      <div class="room-show-detail-content py-3 px-1 border-top">
+        <%= @room.room_introduction %>
       </div>
     </div>
     <div class="col-4">

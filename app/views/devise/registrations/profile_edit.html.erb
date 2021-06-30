@@ -16,12 +16,14 @@
        <%= form_for @user,url: {action: 'profile_update'} do |f| %>
       <div class="update_content">
         <div class="row">
-          <div class="user_icon">
+          <div class="col-6 offset-3">
+            <div class="user-icon-box">
             <% if @user.user_image? %>
-              <%= image_tag @user.user_image.to_s %>
+              <%= image_tag @user.user_image.to_s,class: "icon-image" %>
             <% else %>
-              <%= image_tag "default_icon.png" %>
+              <%= image_tag "default_icon.jpeg",class: "icon-image" %>
             <% end %>
+            </div>
           </div>
         </div>
       </div>

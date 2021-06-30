@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :room_search
+  
   def index
     @rooms = Room.where(user_id: current_user.id)
   end
@@ -27,7 +29,6 @@ class RoomsController < ApplicationController
   
   def update
   end
-  
   
   private
   

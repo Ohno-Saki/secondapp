@@ -2,10 +2,9 @@
 <div class="devise-frame w-50 mx-auto">
 <h2>新しいアカウントを作成</h2>
 
-<div class="devise-inner">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-　
+<div class="devise-inner">　
 　<div class="field">
 　  <span class="badge badge-danger">必須</span>
 　  <%= f.text_field :user_name, placeholder: "ユーザー名" %>

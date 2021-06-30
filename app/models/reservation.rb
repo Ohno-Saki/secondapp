@@ -10,10 +10,4 @@ class Reservation < ApplicationRecord
   def date_num
     (self.finish_day - self.start_day).to_int * self.number_of_people
   end
-
-    
-  
-  
-  
-  
 end

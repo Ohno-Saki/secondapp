@@ -1,49 +1,40 @@
-<p id="notice"><%= notice %></p>
-
-
-<div class="container-field user">
+<div class="container-fiuld user">
   <div class="row">
-    <div class="user-view">
+    <div class="user-view col-12 bg-light h-100">
       <div class="user-view-box">
-        
         <div class="update-content">
           <div class="row">
-            <p>予約した部屋</p>
-            <div>
+            <p class="col-3">予約した部屋</p>
+            <div class="col-9">
               <%= @room.room_name %>
             </div>
           </div>
         </div>
         <div class="update-content">
           <div class="row">
-            <p>開始日</p>
-            <div>
+            <p class="col-3">開始日</p>
+            <div class="col-9">
               <%= @reservation.start_day %>
             </div>
           </div>
         </div>
         <div class="update-content">
           <div class="row">
-            <p>終了日</p>
-            <div>
+            <p class="col-3">終了日</p>
+            <div class="col-9">
               <%= @reservation.finish_day %>
             </div>
           </div>
         </div>
         <div class="update-content">
           <div class="row">
-            <p>価格</p>
-            <div>
+            <p class="col-3">価格</p>
+            <div class="col-9">
               <%= @reservation.total_amount %>
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </div>
 </div>
-
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>

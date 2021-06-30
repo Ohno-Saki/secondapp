@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  root to: "home#index"
+  get 'rooms/search'
+  resources :rooms
   resources :reservations
   get 'rooms/index'
   get 'home/index'
   get 'users/account'
   post 'reservations/confirm'
   post 'rooms/:id', to: 'reservations#confirm' 
-  root to: "home#index"
    
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -17,6 +19,5 @@ Rails.application.routes.draw do
     patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
   end
   
-  resources :rooms
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
