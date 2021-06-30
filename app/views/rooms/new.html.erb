@@ -1,0 +1,55 @@
+<div class="container-fiuld user bg-light w-100 h-100">
+<div class="row w-100 h-100">
+  <div class="user-nav col-2 bg-white h-100">
+    <ul>
+      <li class="active"><%= link_to"基本情報",:new_room %></li>
+    </ul>
+  </div>
+  <div class="user-view col-10 bg-light h-100">
+    <div class="user-view-box">
+      <div class="update-content">
+        <div class="row">
+          <h5>ルーム情報登録</h5>
+        </div>
+      </div>
+       <%= form_for @room do |f| %>
+      <div class="update-content">
+        <div class="row">
+          <%= f.label:room_name,"ルーム名", class: "col-3" %>
+          <%= f.text_field:room_name,placeholder:"ルーム名を入力", class: "col-9" %>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= f.label:room_introduction,"ルーム紹介", class: "col-3" %>
+          <%= f.text_area:room_introduction, rows:"5", placeholder:"ルーム説明を入力",class: "col-9" %>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= f.label:room_price,"料金", class: "col-3" %>
+          <%= f.number_field:room_price, placeholder:"１日あたりの料金を入力",class: "col-9" %> 
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= f.label:room_adress,"住所", class: "col-3" %>
+          <%= f.text_field:room_adress, placeholder:"住所を入力",class: "col-9" %> 
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= f.label:room_image,"ルーム画像", class: "col-3" %>
+          <%= f.file_field:room_image, class: "col-9" %>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= f.submit "登録",class: "btn btn-primary col-2 ml-3"  %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>  
+</div>

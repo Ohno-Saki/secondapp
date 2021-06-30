@@ -1,0 +1,16 @@
+<div class="top">
+  <div class="container">
+    <div class="row col-6">
+      <div class="form-frame">
+        <h4 class="mb-4">気になる部屋を検索</h4>
+          <%= search_form_for @q, url: rooms_search_path do |f| %>
+          <div class="form-group">
+            <%= f.search_field :room_adress_cont,placeholder: "エリア", class: "form-control mb-4" %>
+            <%= f.search_field :room_name_or_room_adress_or_room_introduction_cont, placeholder: "キーワード",class: "form-control mb-4" %>
+            <%= f.submit"検索", class: "btn btn-primary btn-block mb-4" %> 
+          <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

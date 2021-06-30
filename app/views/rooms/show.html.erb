@@ -1,0 +1,42 @@
+<div class="container room-show">
+  <div class="row">
+    <div class="col-8">
+      <%= image_tag @room.room_image.to_s,class: "room-show-image" %>
+      <div class="room-show-detail row p-4 align-items-center">
+        <div class="room-show-detai-icon col-2 p-2">
+          <%= image_tag current_user.user_image.to_s,class: "icon-image" %>  
+        </div>
+        <div class="room-show-profile col-10">
+          <h4 class="p-2 mb-4"><%= @room.room_name %></h4>
+          <p class="pl-2"><%= @room.room_adress %></p>
+        </div>
+      </div>
+      <div class="room-show-detail-content py-3 px-1 border-top">
+        <%= @room.room_introduction %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="room-show-nav border p-2">
+        <h5 class="price-icon m-3">¥<%= @room.room_price %>/日</h5>
+        <div class="room-show-date-select p-2 ">
+          <%= form_for @reservation, url: {controller: 'reservations', action: 'confirm'} do |f| %>
+            <div class="form-group">
+              <%= f.label:start_day,"開始日" %>
+              <%= f.date_field:start_day,class: "w-100" %>
+            </div>
+            <div class="form-group">
+              <%= f.label:finish_day,"終了日" %>
+              <%= f.date_field:finish_day,class: "w-100" %>
+            </div>
+            <div class="form-group">
+              <%= f.label:number_of_people,"人数" %>
+              <%= f.number_field:number_of_people,class: "w-100" %>
+            </div>
+              <%= f.hidden_field:room_id, value: @room.id %>
+              <%= f.submit "予約する",class: "btn btn-primary  btn-block" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,12 +5,60 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e6e6fa;">
+      <div class="navbar-brand">
+        <%= link_to"Travel.com", home_index_path %>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto">
+          <%= search_form_for @q, url: rooms_search_path do |f| %>
+          <form class="form-inline">
+            <%= f.search_field :room_adress_cont,placeholder: "エリア", class: "form-control mr-sm-2" %>
+            <%= f.search_field :room_name_or_room_adress_or_room_introduction_cont, placeholder: "キーワード", class: "form-control mr-sm-2" %>
+            <%= f.submit "search",class: "btn btn-outline-success my-2 my-sm-0" %>
+          <% end %>
+          </form>
+        </ul>
+        
+          <% if user_signed_in? %>
+            <ul class="navbar-nav d-flex align-items-center">
+              <li class="nav-item active">
+              <%= link_to"ルーム登録", :new_room,class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+              <%= link_to"予約済ルーム一覧", :reservations,class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+              <%= link_to"登録済ルーム一覧", :rooms,class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+          　   <%= link_to"設定", users_account_path,class: "nav-link" %>
+          　   </li>
+          　   <li class="nav-item active">
+          　   <%= link_to"ログアウト", destroy_user_session_path, method: :delete,class: "nav-link" %>
+          　   </li>
+            </ul>
+          　<%= current_user.user_name %>
+          　<%= image_tag current_user.user_image.to_s,class: "icon-image" %>  
+          <% else %>
+            <%= link_to"ログイン", new_user_session_path,class: "btn btn-primary text-white mr-4" %>
+            <%= link_to"登録する", new_user_registration_path,class: "btn btn-secondary text-white" %>
+          <% end %>
+      </div>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <footer class="footer">
+      <p>Travel.com</p>
+    </footer>
   </body>
 </html>
